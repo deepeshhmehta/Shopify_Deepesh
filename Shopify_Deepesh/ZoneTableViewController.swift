@@ -11,7 +11,7 @@ import UIKit
 class ZoneTableViewController: UITableViewController {
     
     @IBOutlet var zoneTable: UITableView!
-    var zoneData  = [["count" : 2,"zone" : "Alaska"],["count" : 5,"zone" : "Ontario"]]
+    static var zoneData : [String]?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,15 +37,15 @@ class ZoneTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return zoneData.count
+        return ZoneTableViewController.zoneData!.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        var current = zoneData[indexPath.row]
-        cell.textLabel?.text = (current["zone"] as! String) + "(" + String(current["count"] as! Int) + ")"
+        var current = ZoneTableViewController.zoneData![indexPath.row]
+        cell.textLabel?.text = current
         return cell
     }
 

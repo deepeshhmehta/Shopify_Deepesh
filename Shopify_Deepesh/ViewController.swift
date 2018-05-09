@@ -24,21 +24,45 @@ class ViewController: UITabBarController {
             
             let dataVal = try NSURLConnection.sendSynchronousRequest(request1 as URLRequest, returning: response)
             
-            print(response)
             do {
-                if let jsonResult = try JSONSerialization.jsonObject(with: dataVal, options: []) as? NSDictionary {
-                    print("Synchronous\(jsonResult)")
+                let jsonResult = try JSONSerialization.jsonObject(with: dataVal, options: []) as? [String:Any]
+                let orders = jsonResult!["orders"]
+//                print(orders)
+                var zoneCount : [String:Int] = [:]
+                for order in (orders as! [[String:Any]]){
+                    guard let billing_details = order["billing_address"] as? [String:Any] else{continue}
+                    if let province = billing_details["province"] as? String {
+                        if zoneCount[province] != nil{
+                            zoneCount[province] = zoneCount[province]! + 1
+                        }else{
+                            zoneCount[province] = 1
+                        }
+                    }else{continue}
+//                    print((billing_details["province"])!)
+                    
                 }
+                
+                let sortedZone = zoneCount.sorted(by:<)
+                
+                dump(sortedZone)
+                var zoneTableContent : [String] = []
+                for zone in sortedZone{
+                    zoneTableContent.append(zone.key + "(" + String(zone.value) + ")")
+                }
+                ZoneTableViewController.zoneData = zoneTableContent
+                
+                
+                
             } catch let error as NSError {
                 print(error.localizedDescription)
             }
             
             
-            
-        }catch let error as NSError
-        {
+        } catch let error as NSError{
             print(error.localizedDescription)
         }
+        
+        
 /*
         Alamofire.request("https://shopicruit.myshopify.com/admin/orders.json?page=1&access_token=c32313df0d0ef512ca64d5b336a0d7c6")
             .responseJSON { (responseData) -> Void in
