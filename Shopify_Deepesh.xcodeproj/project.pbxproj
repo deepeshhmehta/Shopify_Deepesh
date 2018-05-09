@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7998973720A32FFB0019EAA0 /* ZoneTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7998973620A32FFB0019EAA0 /* ZoneTableViewController.swift */; };
+		7998973B20A3330B0019EAA0 /* YearTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7998973A20A3330B0019EAA0 /* YearTableViewController.swift */; };
+		7998973D20A334C30019EAA0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7998973C20A334C30019EAA0 /* ViewController.swift */; };
 		79BF0AFF20A27DE300833411 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BF0AFE20A27DE300833411 /* AppDelegate.swift */; };
-		79BF0B0120A27DE300833411 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BF0B0020A27DE300833411 /* ViewController.swift */; };
 		79BF0B0420A27DE300833411 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79BF0B0220A27DE300833411 /* Main.storyboard */; };
 		79BF0B0720A27DE300833411 /* Shopify_Deepesh.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79BF0B0520A27DE300833411 /* Shopify_Deepesh.xcdatamodeld */; };
 		79BF0B0920A27DE600833411 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79BF0B0820A27DE600833411 /* Assets.xcassets */; };
@@ -35,9 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7998973620A32FFB0019EAA0 /* ZoneTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneTableViewController.swift; sourceTree = "<group>"; };
+		7998973A20A3330B0019EAA0 /* YearTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearTableViewController.swift; sourceTree = "<group>"; };
+		7998973C20A334C30019EAA0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		79BF0AFB20A27DE300833411 /* Shopify_Deepesh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shopify_Deepesh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79BF0AFE20A27DE300833411 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		79BF0B0020A27DE300833411 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		79BF0B0320A27DE300833411 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		79BF0B0620A27DE300833411 /* Shopify_Deepesh.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shopify_Deepesh.xcdatamodel; sourceTree = "<group>"; };
 		79BF0B0820A27DE600833411 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -100,8 +104,10 @@
 			isa = PBXGroup;
 			children = (
 				79BF0AFE20A27DE300833411 /* AppDelegate.swift */,
-				79BF0B0020A27DE300833411 /* ViewController.swift */,
 				79BF0B0220A27DE300833411 /* Main.storyboard */,
+				7998973C20A334C30019EAA0 /* ViewController.swift */,
+				7998973A20A3330B0019EAA0 /* YearTableViewController.swift */,
+				7998973620A32FFB0019EAA0 /* ZoneTableViewController.swift */,
 				79BF0B0820A27DE600833411 /* Assets.xcassets */,
 				79BF0B0A20A27DE600833411 /* LaunchScreen.storyboard */,
 				79BF0B0D20A27DE600833411 /* Info.plist */,
@@ -259,9 +265,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79BF0B0120A27DE300833411 /* ViewController.swift in Sources */,
+				7998973D20A334C30019EAA0 /* ViewController.swift in Sources */,
 				79BF0AFF20A27DE300833411 /* AppDelegate.swift in Sources */,
 				79BF0B0720A27DE300833411 /* Shopify_Deepesh.xcdatamodeld in Sources */,
+				7998973B20A3330B0019EAA0 /* YearTableViewController.swift in Sources */,
+				7998973720A32FFB0019EAA0 /* ZoneTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +443,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3597ABG5M9;
 				INFOPLIST_FILE = Shopify_Deepesh/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -452,6 +461,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3597ABG5M9;
 				INFOPLIST_FILE = Shopify_Deepesh/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
