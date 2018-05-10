@@ -15,6 +15,11 @@
 		7998974320A491E00019EAA0 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7998974220A491E00019EAA0 /* ListTableViewCell.swift */; };
 		7998974720A499B70019EAA0 /* 64665.png in Resources */ = {isa = PBXBuildFile; fileRef = 7998974520A499B70019EAA0 /* 64665.png */; };
 		7998974820A499B70019EAA0 /* calendar_5-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 7998974620A499B70019EAA0 /* calendar_5-512.png */; };
+		7998974F20A4D7840019EAA0 /* ScreenRecording_05-10-2018 12-13-48.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 7998974A20A4D7830019EAA0 /* ScreenRecording_05-10-2018 12-13-48.MP4 */; };
+		7998975020A4D7840019EAA0 /* Year Wise.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 7998974B20A4D7830019EAA0 /* Year Wise.PNG */; };
+		7998975120A4D7840019EAA0 /* Zone Wise.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 7998974C20A4D7830019EAA0 /* Zone Wise.PNG */; };
+		7998975220A4D7840019EAA0 /* Zone Details.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 7998974D20A4D7830019EAA0 /* Zone Details.PNG */; };
+		7998975320A4D7840019EAA0 /* Year Details.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 7998974E20A4D7830019EAA0 /* Year Details.PNG */; };
 		79BF0AFF20A27DE300833411 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BF0AFE20A27DE300833411 /* AppDelegate.swift */; };
 		79BF0B0420A27DE300833411 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79BF0B0220A27DE300833411 /* Main.storyboard */; };
 		79BF0B0720A27DE300833411 /* Shopify_Deepesh.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79BF0B0520A27DE300833411 /* Shopify_Deepesh.xcdatamodeld */; };
@@ -50,6 +55,11 @@
 		7998974220A491E00019EAA0 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		7998974520A499B70019EAA0 /* 64665.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 64665.png; sourceTree = "<group>"; };
 		7998974620A499B70019EAA0 /* calendar_5-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar_5-512.png"; sourceTree = "<group>"; };
+		7998974A20A4D7830019EAA0 /* ScreenRecording_05-10-2018 12-13-48.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ScreenRecording_05-10-2018 12-13-48.MP4"; sourceTree = "<group>"; };
+		7998974B20A4D7830019EAA0 /* Year Wise.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Year Wise.PNG"; sourceTree = "<group>"; };
+		7998974C20A4D7830019EAA0 /* Zone Wise.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Zone Wise.PNG"; sourceTree = "<group>"; };
+		7998974D20A4D7830019EAA0 /* Zone Details.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Zone Details.PNG"; sourceTree = "<group>"; };
+		7998974E20A4D7830019EAA0 /* Year Details.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Year Details.PNG"; sourceTree = "<group>"; };
 		79BF0AFB20A27DE300833411 /* Shopify_Deepesh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shopify_Deepesh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79BF0AFE20A27DE300833411 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79BF0B0320A27DE300833411 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -99,9 +109,22 @@
 			path = Icons;
 			sourceTree = "<group>";
 		};
+		7998974920A4D7830019EAA0 /* ScreenShots:Video */ = {
+			isa = PBXGroup;
+			children = (
+				7998974A20A4D7830019EAA0 /* ScreenRecording_05-10-2018 12-13-48.MP4 */,
+				7998974B20A4D7830019EAA0 /* Year Wise.PNG */,
+				7998974C20A4D7830019EAA0 /* Zone Wise.PNG */,
+				7998974D20A4D7830019EAA0 /* Zone Details.PNG */,
+				7998974E20A4D7830019EAA0 /* Year Details.PNG */,
+			);
+			path = "ScreenShots:Video";
+			sourceTree = "<group>";
+		};
 		79BF0AF220A27DE300833411 = {
 			isa = PBXGroup;
 			children = (
+				7998974920A4D7830019EAA0 /* ScreenShots:Video */,
 				79BF0AFC20A27DE300833411 /* Products */,
 				79BF0AFD20A27DE300833411 /* Shopify_Deepesh */,
 				79BF0B1520A27DE600833411 /* Shopify_DeepeshTests */,
@@ -262,7 +285,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7998974820A499B70019EAA0 /* calendar_5-512.png in Resources */,
+				7998975220A4D7840019EAA0 /* Zone Details.PNG in Resources */,
 				79BF0B0C20A27DE600833411 /* LaunchScreen.storyboard in Resources */,
+				7998974F20A4D7840019EAA0 /* ScreenRecording_05-10-2018 12-13-48.MP4 in Resources */,
+				7998975320A4D7840019EAA0 /* Year Details.PNG in Resources */,
+				7998975020A4D7840019EAA0 /* Year Wise.PNG in Resources */,
+				7998975120A4D7840019EAA0 /* Zone Wise.PNG in Resources */,
 				79BF0B0920A27DE600833411 /* Assets.xcassets in Resources */,
 				79BF0B0420A27DE300833411 /* Main.storyboard in Resources */,
 				7998974720A499B70019EAA0 /* 64665.png in Resources */,
