@@ -10,7 +10,6 @@ import UIKit
 
 
 class ViewController: UITabBarController {
-    static var orders_global : [[String:Any]]?
     override func viewDidLoad() {
         super.viewDidLoad()
   
@@ -34,8 +33,8 @@ class ViewController: UITabBarController {
                 //Variable to store count in each year
                 var yearCount : [String:Int] = [:]
                 
-                ViewController.orders_global = orders as? [[String:Any]]
-                for order in ViewController.orders_global!{
+                DataShare.orders_global = orders as? [[String:Any]]
+                for order in DataShare.orders_global!{
                     
                     //Extracting zoneCountData
                     
@@ -69,9 +68,9 @@ class ViewController: UITabBarController {
                 yearTableContent.removeFirst(1)
                 
                 
-                //Assign Content to Data Sources
-                ZoneTableViewController.zoneData = zoneTableContent
-                YearTableViewController.yearData = yearTableContent
+                //Assign Content to Data Share
+                DataShare.zoneData = zoneTableContent
+                DataShare.yearData = yearTableContent
                 
                 
                 

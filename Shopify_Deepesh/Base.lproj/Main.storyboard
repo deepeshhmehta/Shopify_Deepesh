@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Zone Wise-->
+        <!--Zone Table View Controller-->
         <scene sceneID="rJw-OG-5dq">
             <objects>
                 <tableViewController id="TLa-yj-4OI" customClass="ZoneTableViewController" customModule="Shopify_Deepesh" customModuleProvider="target" sceneMemberID="viewController">
@@ -32,7 +32,7 @@
                             <outlet property="delegate" destination="TLa-yj-4OI" id="ANq-pQ-DBo"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Zone Wise" id="ncH-u6-woE"/>
+                    <navigationItem key="navigationItem" id="c4h-DA-Oty"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="zoneTable" destination="xWL-hC-0NQ" id="sgA-DK-gMF"/>
@@ -40,9 +40,37 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GSy-BE-N9a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="393" y="-721"/>
+            <point key="canvasLocation" x="1332" y="-721.88905547226398"/>
         </scene>
-        <!--Year Wise-->
+        <!--List Table View Controller-->
+        <scene sceneID="u5h-lN-KID">
+            <objects>
+                <tableViewController storyboardIdentifier="ListTableViewController" id="Aix-x1-aNl" customClass="ListTableViewController" customModule="Shopify_Deepesh" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="o24-Ud-8uP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="NMI-Va-MC5">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NMI-Va-MC5" id="qyv-md-Cgb">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Aix-x1-aNl" id="D6t-8d-R0F"/>
+                            <outlet property="delegate" destination="Aix-x1-aNl" id="nOS-3N-X8i"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RFy-QW-yl7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2175" y="-354"/>
+        </scene>
+        <!--Year Table View Controller-->
         <scene sceneID="d4k-az-sv0">
             <objects>
                 <tableViewController id="Ccb-pz-rP4" customClass="YearTableViewController" customModule="Shopify_Deepesh" customModuleProvider="target" sceneMemberID="viewController">
@@ -65,7 +93,7 @@
                             <outlet property="delegate" destination="Ccb-pz-rP4" id="YcI-Lv-efN"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Year Wise" id="Ww2-qI-eJf"/>
+                    <navigationItem key="navigationItem" id="OXe-aB-pt0"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="yearTable" destination="PSM-4D-Ket" id="afs-JG-yyk"/>
@@ -73,7 +101,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gos-WJ-6m8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="393" y="-13"/>
+            <point key="canvasLocation" x="1332" y="-13.043478260869566"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ZoI-bs-28l">
@@ -85,13 +113,51 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="TLa-yj-4OI" kind="relationship" relationship="viewControllers" id="8F2-Gk-nQ9"/>
-                        <segue destination="Ccb-pz-rP4" kind="relationship" relationship="viewControllers" id="bgC-ni-wAG"/>
+                        <segue destination="88E-xd-YWc" kind="relationship" relationship="viewControllers" id="8F2-Gk-nQ9"/>
+                        <segue destination="H3g-b0-7C3" kind="relationship" relationship="viewControllers" id="bgC-ni-wAG"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WbE-9P-orC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-559" y="-389"/>
+        </scene>
+        <!--Zone Wise-->
+        <scene sceneID="dGp-Oc-OIY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="88E-xd-YWc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Zone Wise" id="ncH-u6-woE"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Vm4-KK-ZRk">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="TLa-yj-4OI" kind="relationship" relationship="rootViewController" id="2tn-F8-ZPy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jFr-Uv-wDY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="392.80000000000001" y="-721.88905547226398"/>
+        </scene>
+        <!--Year Wise-->
+        <scene sceneID="9vX-ZS-tiX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="H3g-b0-7C3" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Year Wise" id="Ww2-qI-eJf"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Kof-kk-fz4">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ccb-pz-rP4" kind="relationship" relationship="rootViewController" id="5aZ-B4-R8l"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gC9-9m-usO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="392.80000000000001" y="-13.043478260869566"/>
         </scene>
     </scenes>
 </document>

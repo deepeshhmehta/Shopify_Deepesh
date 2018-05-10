@@ -8,9 +8,8 @@
 
 import UIKit
 
-class YearTableViewController: UITableViewController {
+class YearTableViewController: UITableViewController{
     @IBOutlet var yearTable: UITableView!
-    static var yearData : [[String:Any]]  = [["count" : 0,"year" : "Test"]]
     override func viewDidLoad() {
         super.viewDidLoad()
         yearTable.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
@@ -35,19 +34,23 @@ class YearTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return YearTableViewController.yearData.count
+        return DataShare.yearData.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        var current = YearTableViewController.yearData[indexPath.row]
+        var current = DataShare.yearData[indexPath.row]
         cell.textLabel?.text = (current["year"] as! String) + " (" + String(current["count"] as! Int) + ")"
 
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let ListVC = storyboard?.instantiateViewController(withIdentifier: "ListTableViewController") as! ListTableViewController
+        navigationController?.pushViewController(ListVC, animated: true)
+    }
 
     /*
     // Override to support conditional editing of the table view.
