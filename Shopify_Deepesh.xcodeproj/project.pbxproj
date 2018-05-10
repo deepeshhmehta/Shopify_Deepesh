@@ -13,6 +13,8 @@
 		7998973F20A406AF0019EAA0 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7998973E20A406AF0019EAA0 /* ListTableViewController.swift */; };
 		7998974120A477210019EAA0 /* DataShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7998974020A477210019EAA0 /* DataShare.swift */; };
 		7998974320A491E00019EAA0 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7998974220A491E00019EAA0 /* ListTableViewCell.swift */; };
+		7998974720A499B70019EAA0 /* 64665.png in Resources */ = {isa = PBXBuildFile; fileRef = 7998974520A499B70019EAA0 /* 64665.png */; };
+		7998974820A499B70019EAA0 /* calendar_5-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 7998974620A499B70019EAA0 /* calendar_5-512.png */; };
 		79BF0AFF20A27DE300833411 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BF0AFE20A27DE300833411 /* AppDelegate.swift */; };
 		79BF0B0420A27DE300833411 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79BF0B0220A27DE300833411 /* Main.storyboard */; };
 		79BF0B0720A27DE300833411 /* Shopify_Deepesh.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79BF0B0520A27DE300833411 /* Shopify_Deepesh.xcdatamodeld */; };
@@ -46,6 +48,8 @@
 		7998973E20A406AF0019EAA0 /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		7998974020A477210019EAA0 /* DataShare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataShare.swift; sourceTree = "<group>"; };
 		7998974220A491E00019EAA0 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		7998974520A499B70019EAA0 /* 64665.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 64665.png; sourceTree = "<group>"; };
+		7998974620A499B70019EAA0 /* calendar_5-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar_5-512.png"; sourceTree = "<group>"; };
 		79BF0AFB20A27DE300833411 /* Shopify_Deepesh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shopify_Deepesh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79BF0AFE20A27DE300833411 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79BF0B0320A27DE300833411 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -86,13 +90,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7998974420A499B70019EAA0 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				7998974520A499B70019EAA0 /* 64665.png */,
+				7998974620A499B70019EAA0 /* calendar_5-512.png */,
+			);
+			path = Icons;
+			sourceTree = "<group>";
+		};
 		79BF0AF220A27DE300833411 = {
 			isa = PBXGroup;
 			children = (
+				79BF0AFC20A27DE300833411 /* Products */,
 				79BF0AFD20A27DE300833411 /* Shopify_Deepesh */,
 				79BF0B1520A27DE600833411 /* Shopify_DeepeshTests */,
 				79BF0B2020A27DE600833411 /* Shopify_DeepeshUITests */,
-				79BF0AFC20A27DE300833411 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,6 +122,7 @@
 		79BF0AFD20A27DE300833411 /* Shopify_Deepesh */ = {
 			isa = PBXGroup;
 			children = (
+				7998974420A499B70019EAA0 /* Icons */,
 				79BF0AFE20A27DE300833411 /* AppDelegate.swift */,
 				79BF0B0220A27DE300833411 /* Main.storyboard */,
 				7998974020A477210019EAA0 /* DataShare.swift */,
@@ -247,9 +261,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7998974820A499B70019EAA0 /* calendar_5-512.png in Resources */,
 				79BF0B0C20A27DE600833411 /* LaunchScreen.storyboard in Resources */,
 				79BF0B0920A27DE600833411 /* Assets.xcassets in Resources */,
 				79BF0B0420A27DE300833411 /* Main.storyboard in Resources */,
+				7998974720A499B70019EAA0 /* 64665.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
