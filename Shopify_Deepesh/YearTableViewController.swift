@@ -49,6 +49,10 @@ class YearTableViewController: UITableViewController{
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let ListVC = storyboard?.instantiateViewController(withIdentifier: "ListTableViewController") as! ListTableViewController
+        
+        var current = DataShare.yearData[indexPath.row]
+        DataShare.filterYear = current["year"] as? String
+        DataShare.filterType = DataShare.yearType
         navigationController?.pushViewController(ListVC, animated: true)
     }
 

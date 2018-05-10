@@ -9,14 +9,19 @@
 import UIKit
 
 class ListTableViewController: UITableViewController {
-
+    
+    @IBOutlet var list_table: UITableView!
+    
     override func viewDidLoad() {
+        list_table.register(ListTableViewCell.self, forCellReuseIdentifier: "ListCell")
+        
         super.viewDidLoad()
-        if(DataShare.filterType == 1){
-            
-        }else if(DataShare.filterType == 2){
-            
+        if(DataShare.filterType == DataShare.zoneType){
+            filterByZone()
+        }else if(DataShare.filterType == DataShare.yearType){
+            filterByYear()
         }
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -38,18 +43,50 @@ class ListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return (DataShare.orders_to_show?.count)!
     }
 
-    /*
+   
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ListTableViewCell", for: indexPath) as! ListTableViewCell
+        let current = DataShare.orders_to_show![indexPath.row]
+        cell.order_id.text = String(current["id"] as! Int)
+        if let billing_address = current["billing_address"] as? [String: Any]{
+            cell.cust_name.text = (billing_address)["name"] as? String
+        }else{
+            cell.cust_name.text = "Unknown"
+        }
+        
+        cell.cust_email.text = current["email"] as? String
 
         return cell
     }
-    */
+    
+    
+    func filterByZone(){
+        self.navigationItem.title = DataShare.filterZone
+        DataShare.orders_to_show = [[:]]
+        for order in DataShare.orders_global!{
+            guard let billing_details = order["billing_address"] as? [String:Any] else{continue}
+            if(billing_details["province"] as? String == DataShare.filterZone){
+                DataShare.orders_to_show?.append(order)
+            }
+        }
+        DataShare.orders_to_show?.removeFirst(1)
+    }
+    
+    func filterByYear(){
+        self.navigationItem.title = DataShare.filterYear
+        DataShare.orders_to_show = [[:]]
+        for order in DataShare.orders_global!{
+            let date = order["created_at"] as! String
+            let year = date.substring(to: date.index(of: "-")!)
+            if( year == DataShare.filterYear){
+                DataShare.orders_to_show?.append(order)
+            }
+        }
+        DataShare.orders_to_show?.removeFirst(1)
+    }
 
     /*
     // Override to support conditional editing of the table view.

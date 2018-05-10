@@ -51,6 +51,11 @@ class ZoneTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let ListVC = storyboard?.instantiateViewController(withIdentifier: "ListTableViewController") as! ListTableViewController
+        
+        var current = DataShare.zoneData[indexPath.row]
+        
+        DataShare.filterZone = current["zone"] as? String
+        DataShare.filterType = DataShare.zoneType
         navigationController?.pushViewController(ListVC, animated: true)
     }
 

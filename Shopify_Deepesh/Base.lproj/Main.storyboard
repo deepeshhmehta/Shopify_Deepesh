@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -51,13 +53,78 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="NMI-Va-MC5">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListTableViewCell" rowHeight="120" id="wL0-wR-BDz" customClass="ListTableViewCell" customModule="Shopify_Deepesh" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NMI-Va-MC5" id="qyv-md-Cgb">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wL0-wR-BDz" id="KCY-vF-9ck">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order ID:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zUc-jD-vWv">
+                                            <rect key="frame" x="15" y="10" width="70" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="hch-K9-Liw"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cust Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nx2-6X-6ax">
+                                            <rect key="frame" x="15" y="72" width="86" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="order_id_data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Onq-Rz-Yne">
+                                            <rect key="frame" x="115" y="10" width="103" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cust_name_data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTc-nZ-3c3">
+                                            <rect key="frame" x="115" y="41" width="123" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cust_email_data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXc-Hp-VRk">
+                                            <rect key="frame" x="115" y="72" width="122" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cust Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iS7-73-Vap">
+                                            <rect key="frame" x="15" y="41" width="90" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="2qJ-kT-rzs"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="zUc-jD-vWv" firstAttribute="leading" secondItem="KCY-vF-9ck" secondAttribute="leadingMargin" constant="-1" id="074-gX-qi2"/>
+                                        <constraint firstItem="JTc-nZ-3c3" firstAttribute="leading" secondItem="iS7-73-Vap" secondAttribute="trailing" constant="10" id="6IG-1y-rbo"/>
+                                        <constraint firstItem="zUc-jD-vWv" firstAttribute="leading" secondItem="iS7-73-Vap" secondAttribute="leading" id="FSH-lR-dFa"/>
+                                        <constraint firstItem="zUc-jD-vWv" firstAttribute="baseline" secondItem="Onq-Rz-Yne" secondAttribute="baseline" id="Hmx-6z-wGE"/>
+                                        <constraint firstItem="Onq-Rz-Yne" firstAttribute="leading" secondItem="JTc-nZ-3c3" secondAttribute="leading" id="Jvf-mG-Sob"/>
+                                        <constraint firstItem="zUc-jD-vWv" firstAttribute="top" secondItem="KCY-vF-9ck" secondAttribute="topMargin" constant="-1" id="KAF-1T-ydm"/>
+                                        <constraint firstItem="iS7-73-Vap" firstAttribute="leading" secondItem="Nx2-6X-6ax" secondAttribute="leading" id="SMQ-zI-NWG"/>
+                                        <constraint firstItem="Nx2-6X-6ax" firstAttribute="firstBaseline" secondItem="bXc-Hp-VRk" secondAttribute="firstBaseline" id="Xk1-35-W9A"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Nx2-6X-6ax" secondAttribute="bottom" constant="16" id="ZcG-ff-3D0"/>
+                                        <constraint firstItem="iS7-73-Vap" firstAttribute="baseline" secondItem="JTc-nZ-3c3" secondAttribute="baseline" id="cxd-aI-11p"/>
+                                        <constraint firstItem="Nx2-6X-6ax" firstAttribute="top" secondItem="iS7-73-Vap" secondAttribute="bottom" constant="10" id="epx-S4-loB"/>
+                                        <constraint firstItem="JTc-nZ-3c3" firstAttribute="leading" secondItem="bXc-Hp-VRk" secondAttribute="leading" id="gJN-f7-aEg"/>
+                                        <constraint firstItem="Nx2-6X-6ax" firstAttribute="baseline" secondItem="bXc-Hp-VRk" secondAttribute="baseline" id="jdf-4t-Gp0"/>
+                                        <constraint firstItem="iS7-73-Vap" firstAttribute="top" secondItem="zUc-jD-vWv" secondAttribute="bottom" constant="10" id="vxi-B7-Ong"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="cust_email" destination="bXc-Hp-VRk" id="iI4-Hx-kx6"/>
+                                    <outlet property="cust_name" destination="JTc-nZ-3c3" id="Yg3-Rm-eYK"/>
+                                    <outlet property="order_id" destination="Onq-Rz-Yne" id="cIQ-97-hsg"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -65,10 +132,13 @@
                             <outlet property="delegate" destination="Aix-x1-aNl" id="nOS-3N-X8i"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="list_table" destination="o24-Ud-8uP" id="U86-Yr-63h"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RFy-QW-yl7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2175" y="-354"/>
+            <point key="canvasLocation" x="2173.5999999999999" y="-354.87256371814095"/>
         </scene>
         <!--Year Table View Controller-->
         <scene sceneID="d4k-az-sv0">
