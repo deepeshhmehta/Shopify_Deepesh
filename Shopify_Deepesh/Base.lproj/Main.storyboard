@@ -224,7 +224,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="64665.png" width="55" height="55"/>
-        <image name="calendar_5-512.png" width="512" height="512"/>
+        <image name="64665.png" width="40" height="40"/>
+        <image name="calendar_5-512.png" width="40" height="40"/>
     </resources>
 </document>
