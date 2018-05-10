@@ -10,7 +10,7 @@ import UIKit
 
 class YearTableViewController: UITableViewController {
     @IBOutlet var yearTable: UITableView!
-    var yearData  = [["count" : 2,"year" : 2018],["count" : 5,"year" : 2017]]
+    static var yearData : [[String:Any]]  = [["count" : 0,"year" : "Test"]]
     override func viewDidLoad() {
         super.viewDidLoad()
         yearTable.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
@@ -35,15 +35,15 @@ class YearTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return yearData.count
+        return YearTableViewController.yearData.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        var current = yearData[indexPath.row]
-        cell.textLabel?.text = String(current["year"]!) + "(" + String(current["count"]!) + ")"
+        var current = YearTableViewController.yearData[indexPath.row]
+        cell.textLabel?.text = (current["year"] as! String) + " (" + String(current["count"] as! Int) + ")"
 
         return cell
     }

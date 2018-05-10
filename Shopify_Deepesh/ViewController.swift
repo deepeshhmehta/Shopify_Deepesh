@@ -10,7 +10,7 @@ import UIKit
 
 
 class ViewController: UITabBarController {
-    var data : Int = 2
+    static var orders_global : [[String:Any]]?
     override func viewDidLoad() {
         super.viewDidLoad()
   
@@ -27,29 +27,51 @@ class ViewController: UITabBarController {
             do {
                 let jsonResult = try JSONSerialization.jsonObject(with: dataVal, options: []) as? [String:Any]
                 let orders = jsonResult!["orders"]
-//                print(orders)
+                
+                //Variable to Store count in each zone
                 var zoneCount : [String:Int] = [:]
-                for order in (orders as! [[String:Any]]){
-                    guard let billing_details = order["billing_address"] as? [String:Any] else{continue}
-                    if let province = billing_details["province"] as? String {
-                        if zoneCount[province] != nil{
-                            zoneCount[province] = zoneCount[province]! + 1
-                        }else{
-                            zoneCount[province] = 1
-                        }
-                    }else{continue}
-//                    print((billing_details["province"])!)
+                
+                //Variable to store count in each year
+                var yearCount : [String:Int] = [:]
+                
+                ViewController.orders_global = orders as? [[String:Any]]
+                for order in ViewController.orders_global!{
+                    
+                    //Extracting zoneCountData
+                    
+                    extractZoneCountData(order:order,zoneCount: &zoneCount)
+                    
+                    //Extracting yearCountData
+                    extractYearCountData(order:order,yearCount: &yearCount)
                     
                 }
                 
+                // Sort zone & year data alphabetically
                 let sortedZone = zoneCount.sorted(by:<)
+                let sortedYear = yearCount.sorted(by:>)
                 
-                dump(sortedZone)
-                var zoneTableContent : [String] = []
+                //initialise data to be sent to respective data sources
+                var zoneTableContent : [[String:Any]] = [[:]]
+                var yearTableContent : [[String:Any]] = [[:]]
+                
+                //Dress Zone Table Content for easy access by data source
                 for zone in sortedZone{
-                    zoneTableContent.append(zone.key + "(" + String(zone.value) + ")")
+                    zoneTableContent.append(["zone":zone.key, "count":zone.value])
                 }
+                //remove the blank we added while initialisation
+                zoneTableContent.removeFirst(1)
+                
+                //Dress Year Table Content for easy access by data source
+                for year in sortedYear{
+                    yearTableContent.append(["year":year.key, "count":year.value])
+                }
+                //remove the blank we added while initialisation
+                yearTableContent.removeFirst(1)
+                
+                
+                //Assign Content to Data Sources
                 ZoneTableViewController.zoneData = zoneTableContent
+                YearTableViewController.yearData = yearTableContent
                 
                 
                 
@@ -63,15 +85,6 @@ class ViewController: UITabBarController {
         }
         
         
-/*
-        Alamofire.request("https://shopicruit.myshopify.com/admin/orders.json?page=1&access_token=c32313df0d0ef512ca64d5b336a0d7c6")
-            .responseJSON { (responseData) -> Void in
-                guard let responseJSON = responseData.result.value as? [String: Any],
-                    let results = responseJSON["data"] as? [[String: Any]]
-                    else {
-                        return
-                }
-*/
         // Do any additional setup after loading the view.
     }
 
@@ -80,6 +93,30 @@ class ViewController: UITabBarController {
         // Dispose of any resources that can be recreated.
     }
     
+    //extract zone count data
+    func extractZoneCountData(order: [String:Any], zoneCount: inout [String:Int]){
+        guard let billing_details = order["billing_address"] as? [String:Any] else{return}
+        if let province = billing_details["province"] as? String {
+            if zoneCount[province] != nil{
+                zoneCount[province] = zoneCount[province]! + 1
+            }else{
+                zoneCount[province] = 1
+            }
+        }else{return}
+    }
+    
+    //extract year count data
+    func extractYearCountData(order: [String:Any], yearCount: inout [String:Int]){
+        if let date = order["created_at"] as? String {
+            let year = date.substring(to: date.index(of: "-")!)
+            if yearCount[year] != nil{
+                yearCount[year] = yearCount[year]! + 1
+            }else{
+                yearCount[year] = 1
+            }
+        }else{return}
+    }
+
 
     /*
     // MARK: - Navigation
