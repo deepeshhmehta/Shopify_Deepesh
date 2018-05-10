@@ -9,7 +9,8 @@
 import UIKit
 
 class ListTableViewCell: UITableViewCell {
-
+    
+    //instances of labels
     @IBOutlet weak var order_id: UILabel!
     @IBOutlet weak var cust_name: UILabel!
     @IBOutlet weak var cust_email: UILabel!

@@ -9,20 +9,18 @@
 import UIKit
 
 class ZoneTableViewController: UITableViewController {
-    
+    //instance of zoneTable
     @IBOutlet var zoneTable: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //register for generic cell
         zoneTable.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        //set navigation title
         navigationItem.title = "Zone Wise"
     }
     override func didReceiveMemoryWarning() {
@@ -33,32 +31,41 @@ class ZoneTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        //return number of rows in zoneData of data share
         return DataShare.zoneData.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        //generic cell instantiated
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
+        //extract current data object from zonedata
         var current = DataShare.zoneData[indexPath.row]
         
+        //set value to be displayed in cell
         cell.textLabel?.text = (current["zone"] as? String)! + " (" + String((current["count"] as? Int)!) + ")"
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        //instantiate ListTableViewController (self defined)
         let ListVC = storyboard?.instantiateViewController(withIdentifier: "ListTableViewController") as! ListTableViewController
         
+        //select the tapped data item
         var current = DataShare.zoneData[indexPath.row]
         
+        //set up filter type and conditions in data share
+        DataShare.filterType = DataShare.ZONE_TYPE
         DataShare.filterZone = current["zone"] as? String
-        DataShare.filterType = DataShare.zoneType
+        
+        //call the instantiated ListTableViewController to apply the desired filters and load
         navigationController?.pushViewController(ListVC, animated: true)
     }
 

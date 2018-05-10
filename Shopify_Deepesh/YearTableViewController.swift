@@ -9,18 +9,18 @@
 import UIKit
 
 class YearTableViewController: UITableViewController{
+    //instance of year table
     @IBOutlet var yearTable: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //register for generic cell
         yearTable.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        //rename navigation title
         navigationItem.title = "Year Wise"
     }
 
@@ -32,77 +32,42 @@ class YearTableViewController: UITableViewController{
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        //return count from data source
         return DataShare.yearData.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //Generic cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
+        //Extract current data from datashare year data
         var current = DataShare.yearData[indexPath.row]
+        
+        //set value to be displayed
         cell.textLabel?.text = (current["year"] as! String) + " (" + String(current["count"] as! Int) + ")"
 
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        //instantiate a ListTableViewController (self defined)
         let ListVC = storyboard?.instantiateViewController(withIdentifier: "ListTableViewController") as! ListTableViewController
         
+        //select the tapped data item
         var current = DataShare.yearData[indexPath.row]
+        
+        //set up filter type and conditions in data share
+        DataShare.filterType = DataShare.YEAR_TYPE
         DataShare.filterYear = current["year"] as? String
-        DataShare.filterType = DataShare.yearType
+        
+        //call the instantiated ListTableViewController to apply the desired filters and load
         navigationController?.pushViewController(ListVC, animated: true)
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

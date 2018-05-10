@@ -13,6 +13,7 @@ class ViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
   
+        //Set up variables for API call
         let urlPath: String = "https://shopicruit.myshopify.com/admin/orders.json?page=1&access_token=c32313df0d0ef512ca64d5b336a0d7c6"
         let url: NSURL = NSURL(string: urlPath)!
         let request1: NSURLRequest = NSURLRequest(url: url as URL)
@@ -20,12 +21,15 @@ class ViewController: UITabBarController {
         
         
         do{
-            
+            //send request and capture results
             let dataVal = try NSURLConnection.sendSynchronousRequest(request1 as URLRequest, returning: response)
             
             do {
+                //parse results as JSON
                 let jsonResult = try JSONSerialization.jsonObject(with: dataVal, options: []) as? [String:Any]
-                let orders = jsonResult!["orders"]
+                
+                //extract what is needed in global orders
+                DataShare.orders_global = jsonResult!["orders"] as? [[String:Any]]
                 
                 //Variable to Store count in each zone
                 var zoneCount : [String:Int] = [:]
@@ -33,11 +37,10 @@ class ViewController: UITabBarController {
                 //Variable to store count in each year
                 var yearCount : [String:Int] = [:]
                 
-                DataShare.orders_global = orders as? [[String:Any]]
+                
                 for order in DataShare.orders_global!{
                     
                     //Extracting zoneCountData
-                    
                     extractZoneCountData(order:order,zoneCount: &zoneCount)
                     
                     //Extracting yearCountData
@@ -57,18 +60,18 @@ class ViewController: UITabBarController {
                 for zone in sortedZone{
                     zoneTableContent.append(["zone":zone.key, "count":zone.value])
                 }
-                //remove the blank we added while initialisation
-                zoneTableContent.removeFirst(1)
                 
                 //Dress Year Table Content for easy access by data source
                 for year in sortedYear{
                     yearTableContent.append(["year":year.key, "count":year.value])
                 }
-                //remove the blank we added while initialisation
+                
+                //remove the blanks we added while initialisation
+                zoneTableContent.removeFirst(1)
                 yearTableContent.removeFirst(1)
                 
                 
-                //Assign Content to Data Share
+                //Assign Content to Data Share (Data Sources pick data from data share)
                 DataShare.zoneData = zoneTableContent
                 DataShare.yearData = yearTableContent
                 
@@ -82,9 +85,6 @@ class ViewController: UITabBarController {
         } catch let error as NSError{
             print(error.localizedDescription)
         }
-        
-        
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -92,10 +92,14 @@ class ViewController: UITabBarController {
         // Dispose of any resources that can be recreated.
     }
     
-    //extract zone count data
+    //extract zone count data and update variable using parameter by reference
     func extractZoneCountData(order: [String:Any], zoneCount: inout [String:Int]){
+        //check if billing_details field exists
         guard let billing_details = order["billing_address"] as? [String:Any] else{return}
+        
+        //check if province exists
         if let province = billing_details["province"] as? String {
+            //if zone already exists in count increment else create
             if zoneCount[province] != nil{
                 zoneCount[province] = zoneCount[province]! + 1
             }else{
@@ -104,10 +108,14 @@ class ViewController: UITabBarController {
         }else{return}
     }
     
-    //extract year count data
+    //extract year count data and update variable using parameter by reference
     func extractYearCountData(order: [String:Any], yearCount: inout [String:Int]){
+        //check if created_at exists
         if let date = order["created_at"] as? String {
+            //extract year from string date
             let year = date.substring(to: date.index(of: "-")!)
+            
+            //if year already exists in count increment else create
             if yearCount[year] != nil{
                 yearCount[year] = yearCount[year]! + 1
             }else{
@@ -115,16 +123,5 @@ class ViewController: UITabBarController {
             }
         }else{return}
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
