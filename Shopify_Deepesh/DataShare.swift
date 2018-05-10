@@ -13,4 +13,5 @@ class DataShare: NSObject {
     static var yearData : [[String:Any]]  = [["count" : 0,"year" : "Test"]]
     static var zoneData : [[String:Any]] = [["zone":"Test","count": 0]]
     static var filterType : Int = 1 // 1 = Zone; 2 = Year
+    static var orders_to_show : [[String:Any]]?
 }
