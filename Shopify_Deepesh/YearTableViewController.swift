@@ -21,7 +21,7 @@ class YearTableViewController: UITableViewController{
     
     override func viewDidAppear(_ animated: Bool) {
         //rename navigation title
-        navigationItem.title = "Year Wise"
+        navigationItem.title = "Orders By Year"
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,7 +49,8 @@ class YearTableViewController: UITableViewController{
         var current = DataShare.yearData[indexPath.row]
         
         //set value to be displayed
-        cell.textLabel?.text = (current["year"] as! String) + " (" + String(current["count"] as! Int) + ")"
+        let text = String(current["count"] as! Int) + " number of orders in " + (current["year"] as! String)
+        cell.textLabel?.text = text
 
         return cell
     }

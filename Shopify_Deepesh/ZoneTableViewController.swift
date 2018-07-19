@@ -21,7 +21,7 @@ class ZoneTableViewController: UITableViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         //set navigation title
-        navigationItem.title = "Zone Wise"
+        navigationItem.title = "Orders By Province"
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -49,7 +49,8 @@ class ZoneTableViewController: UITableViewController {
         var current = DataShare.zoneData[indexPath.row]
         
         //set value to be displayed in cell
-        cell.textLabel?.text = (current["zone"] as? String)! + " (" + String((current["count"] as? Int)!) + ")"
+        let text = String((current["count"] as? Int)!) + " number of orders from " + (current["zone"] as? String)!
+        cell.textLabel?.text = text
         return cell
     }
     
