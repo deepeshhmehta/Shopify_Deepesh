@@ -36,6 +36,7 @@ class ViewController: UITabBarController {
                 
                 //Variable to store count in each year
                 var yearCount : [String:Int] = [:]
+                var yearWiseData : [String:[[String:Any]]] = [:]
                 
                 
                 for order in DataShare.orders_global!{
@@ -44,7 +45,7 @@ class ViewController: UITabBarController {
                     extractZoneCountData(order:order,zoneCount: &zoneCount)
                     
                     //Extracting yearCountData
-                    extractYearCountData(order:order,yearCount: &yearCount)
+                    extractYearCountData(order:order,yearCount: &yearCount, yearWiseData: &yearWiseData)
                     
                 }
                 
@@ -70,12 +71,15 @@ class ViewController: UITabBarController {
                 zoneTableContent.removeFirst(1)
                 yearTableContent.removeFirst(1)
                 
+                for yearData in yearWiseData {
+                    yearWiseData[yearData.key]?.removeFirst(1)
+                }
+                
                 
                 //Assign Content to Data Share (Data Sources pick data from data share)
                 DataShare.zoneData = zoneTableContent
                 DataShare.yearData = yearTableContent
-                
-                
+                DataShare.yearWiseData = yearWiseData
                 
             } catch let error as NSError {
                 print(error.localizedDescription)
@@ -109,7 +113,7 @@ class ViewController: UITabBarController {
     }
     
     //extract year count data and update variable using parameter by reference
-    func extractYearCountData(order: [String:Any], yearCount: inout [String:Int]){
+    func extractYearCountData(order: [String:Any], yearCount: inout [String:Int], yearWiseData: inout [String:[[String:Any]]]){
         //check if created_at exists
         if let date = order["created_at"] as? String {
             //extract year from string date
@@ -120,6 +124,10 @@ class ViewController: UITabBarController {
                 yearCount[year] = yearCount[year]! + 1
             }else{
                 yearCount[year] = 1
+                yearWiseData[year] = [[:]]
+            }
+            if ((yearWiseData[year]?.count)! < 11){
+                yearWiseData[year]?.append(order)
             }
         }else{return}
     }

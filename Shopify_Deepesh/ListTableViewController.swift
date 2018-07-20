@@ -18,10 +18,11 @@ class ListTableViewController: UITableViewController {
         
         //register to custom cell
         list_table.register(ListTableViewCell.self, forCellReuseIdentifier: "ListCell")
+//        list_table.register(ListTableViewCell.self, forCellReuseIdentifier: "ListTableViewCell")
         
         //flush down previous results
         DataShare.orders_to_show = [[:]]
-
+        
         //check for which type of filter is applied and fill data
         if(DataShare.filterType == DataShare.ZONE_TYPE){
             filterByZone()
@@ -33,40 +34,40 @@ class ListTableViewController: UITableViewController {
         DataShare.orders_to_show?.removeFirst(1)
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (DataShare.orders_to_show?.count)!
     }
-
-   
+    
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
         //creating instance of self defined cell
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ListTableViewCell", for: indexPath) as! ListTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ListTableViewCell", for: indexPath) as? ListTableViewCell
         
         //select current order object from orders to show
         let current = DataShare.orders_to_show![indexPath.row]
         
         //set data in cell
-        cell.order_id.text = String(current["id"] as! Int)
+        cell!.order_id.text = String(current["id"] as! Int)
         if let billing_address = current["billing_address"] as? [String: Any]{
-            cell.cust_name.text = (billing_address)["name"] as? String
+            cell!.cust_name.text = (billing_address)["name"] as? String
         }else{
-            cell.cust_name.text = "Unknown"
+            cell!.cust_name.text = "Unknown"
         }
-        cell.cust_email.text = current["email"] as? String
-
-        return cell
+        cell!.cust_email.text = current["email"] as? String
+        
+        return cell!
     }
     
     //filter orders to be shown according to zone parameters updated in datashare
@@ -98,5 +99,5 @@ class ListTableViewController: UITableViewController {
             }
         }
     }
-
+    
 }

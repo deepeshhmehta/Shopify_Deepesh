@@ -17,6 +17,8 @@ class YearTableViewController: UITableViewController{
         
         //register for generic cell
         yearTable.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+//        yearTable.register(ListTableViewCell.self, forCellReuseIdentifier: "ListCell")
+//        yearTable.register(ListTableViewCell.self, forCellReuseIdentifier: "ListTableViewCell")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -32,27 +34,39 @@ class YearTableViewController: UITableViewController{
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return DataShare.yearWiseData.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //return count from data source
-        return DataShare.yearData.count
+        return DataShare.yearWiseData[(DataShare.yearData[section]["year"] as? String)!]!.count
     }
 
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return (DataShare.yearData[section]["year"] as? String)!
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //Generic cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "ListTableViewCell", for: indexPath) as! ListTableViewCell
+//
+//        //select current order object from orders to show
+//        let current : [String:Any] = DataShare.yearWiseData[(DataShare.yearData[indexPath.section]["year"] as? String)!]![indexPath.row]
+//
+//        //set data in cell
+//
+//        cell.order_id.text = String(current["id"] as! Int)
+//        if let billing_address = current["billing_address"] as? [String: Any]{
+//            cell.cust_name.text = (billing_address)["name"] as? String
+//        }else{
+//            cell.cust_name.text = "Unknown"
+//        }
+//        cell.cust_email.text = current["email"] as? String
+        cell.textLabel?.text = "Hello"
         
-        //Extract current data from datashare year data
-        var current = DataShare.yearData[indexPath.row]
-        
-        //set value to be displayed
-        let text = String(current["count"] as! Int) + " number of orders in " + (current["year"] as! String)
-        cell.textLabel?.text = text
-
         return cell
+        
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

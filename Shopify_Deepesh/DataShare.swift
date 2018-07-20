@@ -21,6 +21,9 @@ class DataShare: NSObject {
     //data to be used to load the year-wise table
     static var yearData : [[String:Any]]  = [["count" : 0,"year" : "Test"]]
     
+    //data to be used to load top 10 results from one year
+    static var yearWiseData : [String:[[String:Any]]] = ["test" : [["test" : 0]]]
+    
     //data to be used to load the zone-wise table
     static var zoneData : [[String:Any]] = [["zone":"Test","count": 0]]
     

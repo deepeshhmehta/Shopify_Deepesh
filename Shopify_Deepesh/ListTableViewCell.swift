@@ -11,9 +11,11 @@ import UIKit
 class ListTableViewCell: UITableViewCell {
     
     //instances of labels
-    @IBOutlet weak var order_id: UILabel!
-    @IBOutlet weak var cust_name: UILabel!
-    @IBOutlet weak var cust_email: UILabel!
+    
+    @IBOutlet var order_id: UILabel!
+    @IBOutlet var cust_name: UILabel!
+    @IBOutlet var cust_email: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
