@@ -144,13 +144,75 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="xPp-1m-JZr">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListTableViewCell" rowHeight="114" id="wmd-KD-HHc" customClass="ListTableViewCell" customModule="Shopify_Deepesh" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="114"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xPp-1m-JZr" id="25k-AB-neK">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wmd-KD-HHc" id="Dyt-Tb-gAg">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="113.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order id:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEX-aW-KbD">
+                                            <rect key="frame" x="20" y="10" width="87" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cust name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xLG-x4-UHK">
+                                            <rect key="frame" x="20" y="41" width="87" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cust email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRU-6A-4sT">
+                                            <rect key="frame" x="20" y="72" width="87" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="order_id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nhw-fO-age">
+                                            <rect key="frame" x="117" y="10" width="83" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cust_name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X1K-6z-59u">
+                                            <rect key="frame" x="117" y="41" width="83" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cust_email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAT-DC-iNb">
+                                            <rect key="frame" x="117" y="72" width="83" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="cAT-DC-iNb" firstAttribute="width" secondItem="X1K-6z-59u" secondAttribute="width" id="1nD-7b-i2e"/>
+                                        <constraint firstItem="cAT-DC-iNb" firstAttribute="leading" secondItem="X1K-6z-59u" secondAttribute="leading" id="4q6-ei-ubA"/>
+                                        <constraint firstItem="oRU-6A-4sT" firstAttribute="width" secondItem="xLG-x4-UHK" secondAttribute="width" id="Efx-LT-9j5"/>
+                                        <constraint firstItem="X1K-6z-59u" firstAttribute="leading" secondItem="nhw-fO-age" secondAttribute="leading" id="HQx-6W-iNw"/>
+                                        <constraint firstAttribute="bottom" secondItem="oRU-6A-4sT" secondAttribute="bottom" constant="20" id="KLy-bF-Du0"/>
+                                        <constraint firstItem="oRU-6A-4sT" firstAttribute="top" secondItem="xLG-x4-UHK" secondAttribute="bottom" constant="10" id="MGl-bc-XRh"/>
+                                        <constraint firstItem="nhw-fO-age" firstAttribute="leading" secondItem="hEX-aW-KbD" secondAttribute="trailing" constant="10" id="MjX-D9-Sbe"/>
+                                        <constraint firstItem="oRU-6A-4sT" firstAttribute="leading" secondItem="xLG-x4-UHK" secondAttribute="leading" id="QU8-ry-UmE"/>
+                                        <constraint firstItem="X1K-6z-59u" firstAttribute="centerY" secondItem="xLG-x4-UHK" secondAttribute="centerY" id="RXb-K6-xj1"/>
+                                        <constraint firstItem="hEX-aW-KbD" firstAttribute="top" secondItem="Dyt-Tb-gAg" secondAttribute="top" constant="10" id="V6U-Fx-BgT"/>
+                                        <constraint firstItem="cAT-DC-iNb" firstAttribute="centerY" secondItem="oRU-6A-4sT" secondAttribute="centerY" id="bSC-ww-5PP"/>
+                                        <constraint firstItem="xLG-x4-UHK" firstAttribute="top" secondItem="hEX-aW-KbD" secondAttribute="bottom" constant="10" id="cSB-gr-cZ0"/>
+                                        <constraint firstItem="hEX-aW-KbD" firstAttribute="leading" secondItem="Dyt-Tb-gAg" secondAttribute="leading" constant="20" id="cnh-2x-g9C"/>
+                                        <constraint firstItem="xLG-x4-UHK" firstAttribute="leading" secondItem="hEX-aW-KbD" secondAttribute="leading" id="kC9-7g-RDB"/>
+                                        <constraint firstItem="nhw-fO-age" firstAttribute="centerY" secondItem="hEX-aW-KbD" secondAttribute="centerY" id="m81-Yc-KP9"/>
+                                        <constraint firstItem="X1K-6z-59u" firstAttribute="width" secondItem="nhw-fO-age" secondAttribute="width" id="nXa-sU-brX"/>
+                                        <constraint firstItem="xLG-x4-UHK" firstAttribute="width" secondItem="hEX-aW-KbD" secondAttribute="width" id="vLv-iZ-eFj"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="cust_email" destination="cAT-DC-iNb" id="aJB-im-8oh"/>
+                                    <outlet property="cust_name" destination="X1K-6z-59u" id="GUV-0x-1sK"/>
+                                    <outlet property="order_id" destination="nhw-fO-age" id="i73-YI-e7x"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

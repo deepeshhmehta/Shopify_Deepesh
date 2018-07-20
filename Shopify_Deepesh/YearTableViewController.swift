@@ -16,8 +16,8 @@ class YearTableViewController: UITableViewController{
         super.viewDidLoad()
         
         //register for generic cell
-        yearTable.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-//        yearTable.register(ListTableViewCell.self, forCellReuseIdentifier: "ListCell")
+//        yearTable.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        yearTable.register(ListTableViewCell.self, forCellReuseIdentifier: "ListCell")
 //        yearTable.register(ListTableViewCell.self, forCellReuseIdentifier: "ListTableViewCell")
     }
     
@@ -43,27 +43,28 @@ class YearTableViewController: UITableViewController{
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return (DataShare.yearData[section]["year"] as? String)!
+        let retString = String(DataShare.yearData[section]["count"] as! Int) + " number of orders in " + (DataShare.yearData[section]["year"]! as? String)!
+        return retString
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //Generic cell
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "ListTableViewCell", for: indexPath) as! ListTableViewCell
-//
-//        //select current order object from orders to show
-//        let current : [String:Any] = DataShare.yearWiseData[(DataShare.yearData[indexPath.section]["year"] as? String)!]![indexPath.row]
-//
-//        //set data in cell
-//
-//        cell.order_id.text = String(current["id"] as! Int)
-//        if let billing_address = current["billing_address"] as? [String: Any]{
-//            cell.cust_name.text = (billing_address)["name"] as? String
-//        }else{
-//            cell.cust_name.text = "Unknown"
-//        }
-//        cell.cust_email.text = current["email"] as? String
-        cell.textLabel?.text = "Hello"
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ListTableViewCell", for: indexPath) as! ListTableViewCell
+
+        //select current order object from orders to show
+        let current : [String:Any] = DataShare.yearWiseData[(DataShare.yearData[indexPath.section]["year"] as? String)!]![indexPath.row]
+
+        //set data in cell
+
+        cell.order_id.text = String(current["id"] as! Int)
+        if let billing_address = current["billing_address"] as? [String: Any]{
+            cell.cust_name.text = (billing_address)["name"] as? String
+        }else{
+            cell.cust_name.text = "Unknown"
+        }
+        cell.cust_email.text = current["email"] as? String
+//        cell.textLabel?.text = "Hello"
         
         return cell
         
@@ -73,13 +74,10 @@ class YearTableViewController: UITableViewController{
         
         //instantiate a ListTableViewController (self defined)
         let ListVC = storyboard?.instantiateViewController(withIdentifier: "ListTableViewController") as! ListTableViewController
-        
-        //select the tapped data item
-        var current = DataShare.yearData[indexPath.row]
-        
+    
         //set up filter type and conditions in data share
         DataShare.filterType = DataShare.YEAR_TYPE
-        DataShare.filterYear = current["year"] as? String
+        DataShare.filterYear = DataShare.yearData[indexPath.section]["year"] as? String
         
         //call the instantiated ListTableViewController to apply the desired filters and load
         navigationController?.pushViewController(ListVC, animated: true)

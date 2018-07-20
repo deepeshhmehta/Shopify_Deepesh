@@ -18,11 +18,21 @@ class ZoneTableViewController: UITableViewController {
         //register for generic cell
         zoneTable.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         //set navigation title
         navigationItem.title = "Orders By Province"
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action: #selector(self.navBarTapped(_:)))
+        
+        self.navigationController?.navigationBar.addGestureRecognizer(tapGestureRecognizer)
     }
+    
+    @objc func navBarTapped(_ theObject: AnyObject){
+        let SpecialVC = storyboard?.instantiateViewController(withIdentifier: "SpecialViewController") as! ListTableViewController
+        navigationController?.pushViewController(SpecialVC, animated: true)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -65,6 +75,10 @@ class ZoneTableViewController: UITableViewController {
         //set up filter type and conditions in data share
         DataShare.filterType = DataShare.ZONE_TYPE
         DataShare.filterZone = current["zone"] as? String
+        
+        //remove tap recognizer
+        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action: #selector(self.navBarTapped(_:)))
+        navigationController?.navigationBar.removeGestureRecognizer(tapGestureRecognizer)
         
         //call the instantiated ListTableViewController to apply the desired filters and load
         navigationController?.pushViewController(ListVC, animated: true)

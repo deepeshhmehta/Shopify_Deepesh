@@ -27,6 +27,9 @@ class DataShare: NSObject {
     //data to be used to load the zone-wise table
     static var zoneData : [[String:Any]] = [["zone":"Test","count": 0]]
     
+    //data to be used to load top 10 results from one year
+    static var zoneWiseData : [String:[[String:Any]]] = ["test" : [["test" : 0]]]
+    
     //decide what data to load in the list table
     static var filterType : Int = DataShare.ZONE_TYPE // 1 = Zone; 2 = Year
     

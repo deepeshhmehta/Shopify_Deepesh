@@ -33,6 +33,7 @@ class ViewController: UITabBarController {
                 
                 //Variable to Store count in each zone
                 var zoneCount : [String:Int] = [:]
+                var zoneWiseData : [String:[[String:Any]]] = [:]
                 
                 //Variable to store count in each year
                 var yearCount : [String:Int] = [:]
@@ -42,7 +43,7 @@ class ViewController: UITabBarController {
                 for order in DataShare.orders_global!{
                     
                     //Extracting zoneCountData
-                    extractZoneCountData(order:order,zoneCount: &zoneCount)
+                    extractZoneCountData(order:order,zoneCount: &zoneCount, zoneWiseData: &zoneWiseData)
                     
                     //Extracting yearCountData
                     extractYearCountData(order:order,yearCount: &yearCount, yearWiseData: &yearWiseData)
@@ -75,11 +76,15 @@ class ViewController: UITabBarController {
                     yearWiseData[yearData.key]?.removeFirst(1)
                 }
                 
+                for zoneData in zoneWiseData {
+                    zoneWiseData[zoneData.key]?.removeFirst(1)
+                }
                 
                 //Assign Content to Data Share (Data Sources pick data from data share)
                 DataShare.zoneData = zoneTableContent
                 DataShare.yearData = yearTableContent
                 DataShare.yearWiseData = yearWiseData
+                DataShare.zoneWiseData = zoneWiseData
                 
             } catch let error as NSError {
                 print(error.localizedDescription)
@@ -97,7 +102,7 @@ class ViewController: UITabBarController {
     }
     
     //extract zone count data and update variable using parameter by reference
-    func extractZoneCountData(order: [String:Any], zoneCount: inout [String:Int]){
+    func extractZoneCountData(order: [String:Any], zoneCount: inout [String:Int], zoneWiseData: inout [String:[[String:Any]]]){
         //check if billing_details field exists
         guard let billing_details = order["billing_address"] as? [String:Any] else{return}
         
@@ -108,7 +113,9 @@ class ViewController: UITabBarController {
                 zoneCount[province] = zoneCount[province]! + 1
             }else{
                 zoneCount[province] = 1
+                zoneWiseData[province] = [[:]]
             }
+            zoneWiseData[province]?.append(order)
         }else{return}
     }
     
