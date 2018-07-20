@@ -51,11 +51,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListTableViewCell" rowHeight="107" id="Zqq-KV-q4k" customClass="ListTableViewCell" customModule="Shopify_Deepesh" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="107"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListTableViewCell" rowHeight="114" id="Zqq-KV-q4k" customClass="ListTableViewCell" customModule="Shopify_Deepesh" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="114"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zqq-KV-q4k" id="n9x-gj-eNG">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="106.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="113.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order id:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8mo-Pi-sFz">
@@ -97,6 +97,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="9sh-kO-S4r" firstAttribute="width" secondItem="eod-pC-Gm1" secondAttribute="width" id="34p-F6-Aht"/>
+                                        <constraint firstAttribute="bottom" secondItem="hFr-io-jEd" secondAttribute="bottom" constant="20" id="64o-NE-hPT"/>
                                         <constraint firstItem="9sh-kO-S4r" firstAttribute="leading" secondItem="eod-pC-Gm1" secondAttribute="leading" id="7lI-bj-sIA"/>
                                         <constraint firstItem="hFr-io-jEd" firstAttribute="leading" secondItem="t6D-7D-45L" secondAttribute="leading" id="EKt-V6-28u"/>
                                         <constraint firstItem="eod-pC-Gm1" firstAttribute="leading" secondItem="hZT-7a-d0k" secondAttribute="leading" id="Ezd-IV-h7S"/>
@@ -132,7 +133,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RFy-QW-yl7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2173.5" y="-355.5"/>
+            <point key="canvasLocation" x="2172" y="-355.7721139430285"/>
         </scene>
         <!--Year Table View Controller-->
         <scene sceneID="d4k-az-sv0">
