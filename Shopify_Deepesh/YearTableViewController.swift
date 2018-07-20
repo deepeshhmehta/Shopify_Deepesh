@@ -15,10 +15,7 @@ class YearTableViewController: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //register for generic cell
-//        yearTable.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         yearTable.register(ListTableViewCell.self, forCellReuseIdentifier: "ListCell")
-//        yearTable.register(ListTableViewCell.self, forCellReuseIdentifier: "ListTableViewCell")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -48,8 +45,7 @@ class YearTableViewController: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //Generic cell
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListTableViewCell", for: indexPath) as! ListTableViewCell
 
         //select current order object from orders to show
@@ -64,7 +60,7 @@ class YearTableViewController: UITableViewController{
             cell.cust_name.text = "Unknown"
         }
         cell.cust_email.text = current["email"] as? String
-//        cell.textLabel?.text = "Hello"
+
         
         return cell
         

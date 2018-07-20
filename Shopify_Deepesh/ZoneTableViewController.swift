@@ -29,7 +29,7 @@ class ZoneTableViewController: UITableViewController {
     }
     
     @objc func navBarTapped(_ theObject: AnyObject){
-        let SpecialVC = storyboard?.instantiateViewController(withIdentifier: "SpecialViewController") as! ListTableViewController
+        let SpecialVC = storyboard?.instantiateViewController(withIdentifier: "SpecialProvinceTableViewController") as! SpecialProvinceTableViewController
         navigationController?.pushViewController(SpecialVC, animated: true)
     }
     

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		791748EA2101A6E5008195B3 /* SpecialProvinceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791748E92101A6E5008195B3 /* SpecialProvinceTableViewController.swift */; };
 		7998973720A32FFB0019EAA0 /* ZoneTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7998973620A32FFB0019EAA0 /* ZoneTableViewController.swift */; };
 		7998973B20A3330B0019EAA0 /* YearTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7998973A20A3330B0019EAA0 /* YearTableViewController.swift */; };
 		7998973D20A334C30019EAA0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7998973C20A334C30019EAA0 /* ViewController.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		791748E92101A6E5008195B3 /* SpecialProvinceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialProvinceTableViewController.swift; sourceTree = "<group>"; };
 		7998973620A32FFB0019EAA0 /* ZoneTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneTableViewController.swift; sourceTree = "<group>"; };
 		7998973A20A3330B0019EAA0 /* YearTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearTableViewController.swift; sourceTree = "<group>"; };
 		7998973C20A334C30019EAA0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				7998974420A499B70019EAA0 /* Icons */,
 				79BF0AFE20A27DE300833411 /* AppDelegate.swift */,
 				79BF0B0220A27DE300833411 /* Main.storyboard */,
+				791748E92101A6E5008195B3 /* SpecialProvinceTableViewController.swift */,
 				7998974020A477210019EAA0 /* DataShare.swift */,
 				7998973E20A406AF0019EAA0 /* ListTableViewController.swift */,
 				7998974220A491E00019EAA0 /* ListTableViewCell.swift */,
@@ -318,6 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				791748EA2101A6E5008195B3 /* SpecialProvinceTableViewController.swift in Sources */,
 				7998973D20A334C30019EAA0 /* ViewController.swift in Sources */,
 				7998974320A491E00019EAA0 /* ListTableViewCell.swift in Sources */,
 				79BF0AFF20A27DE300833411 /* AppDelegate.swift in Sources */,
